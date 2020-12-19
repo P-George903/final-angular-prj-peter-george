@@ -1,0 +1,21 @@
+<h2>Product Details</h2>
+
+<div *ngIf ="product">
+  <h3>{{product.name}}</h3>
+  <h4>{{product.price | currency}}</h4>
+  <p>{{product.description}}</p>
+  
+  <button (click)="addToCart(product)">Buy</button>
+</div>
+
+  <h2>Phone Plan Details</h2>
+
+<div *ngIf="plans">
+  <h3>{{ plans.name }}</h3>
+  <h4>{{ plans.price | currency }}</h4>
+  <p>{{ plans.description }}</p>
+  <button (click)="addToCheckOut(plans)">Add Phone Plan</button>
+</div>
+
+
+  

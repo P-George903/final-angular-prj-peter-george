@@ -1,0 +1,165 @@
+/* Global Styles */
+
+fa-icon {
+  color: skyblue;
+  margin-left: 20px;
+ }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+  
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  body {
+    color: #616161;
+    margin: 0;
+  }
+  
+  .container-fluid {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  router-outlet + *  {
+    padding: 0 16px;
+  }
+  
+  /* Text */
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 26px;
+  }
+  
+  h1, h2 {
+    font-weight: lighter;
+  }
+  
+  p {
+    font-size: 14px;
+  }
+  
+  /* Hyperlink */
+  
+  a {
+    color: #1976d2;
+    cursor: pointer;
+  }
+  
+  a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Input */
+  
+  input {
+    border: 1px solid #BDBDBD;
+    border-radius: 2px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    padding: 8px;
+  }
+  
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  
+  /* Button */
+  
+  .button, button {
+    align-items: center;
+    background-color: #1976d2;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .button:hover, button:hover {
+    font-weight: normal;
+    opacity: 0.8;
+  }
+  
+  .button:disabled, button:disabled {
+    cursor: auto;
+    opacity: 0.5;
+  }
+  
+  /* Fancy Button */
+  
+  .fancy-button {
+    background-color: white;
+    color: #1976d2;
+    margin-bottom: 14px;
+    margin-left: 7px;
+  }
+  
+  .fancy-button i.material-icons {
+    color: #1976d2;
+  }
+  
+  /* Top Bar */
+  
+  app-top-bar {
+    align-items: center;
+    background-color: #1976d2;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: auto;
+   }
+  
+   @media screen and (max-width: 600px) {
+    app-top-bar {
+    width: 47rem;
+     }
+     
+   }
+   @media screen and (min-width: 768px) {
+    app-top-bar {
+    width: 100vw;
+     }
+   }
+   
+  app-top-bar h1 {
+    color: white;
+    margin-left: 7px;
+    }
+  
+  .icons-container {
+    align-items: center;
+    display: inline-flex;
+    width: 4%;
+   }
+  
+  /* Checkout Cart, Shipping Prices */
+  
+  .cart-item, .shipping-item {
+    width: 100%;
+    min-width: 400px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 32px;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    background-color: #EEEEEE;
+  }
+  .col-lg-4{
+    height: 350px;
+  }
+  
