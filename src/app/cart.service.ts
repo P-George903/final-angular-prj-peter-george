@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { DataPlanService } from './data-plan.service';
 
 @Injectable({
 providedIn: 'root'
@@ -8,6 +8,7 @@ providedIn: 'root'
  
 export class CartService {
 items = []
+services = []
 
 constructor(private http: HttpClient) { }
 addToCart(product){
@@ -26,5 +27,7 @@ clearCart(){
 getShippingPrices(){
   return this.http.get('/assets/shipping.json')
 }
-
+getPlan(){
+return this.services
+}
 }

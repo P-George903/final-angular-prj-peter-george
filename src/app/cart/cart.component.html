@@ -7,6 +7,11 @@
     <span>{{item.price | currency}}</span>
 </div>
 
+<div *ngFor="let service of services">
+  <span>{{service.name}}</span>
+    <span>{{service.price | currency}}</span>
+    </div>
+
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
   <div>

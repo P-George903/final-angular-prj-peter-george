@@ -1,21 +1,18 @@
-
 <!--navbar -->
 <nav id="nav">
-    
-<a [routerLink]="['/']">
-  <h1>My Online Store</h1>
-</a>
 
-<a routerLink="/cart" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
-<a routerLink="/plans/:option" class="button fancy-button"><i class="material-icons">shopping_cart</i>Plan Checkout</a>
-<div class="icons-container">
-  <fa-icon [icon]= "faPaypal" size="2x"></fa-icon>
-  
-  <fa-icon [icon]= "faGooglePay" size="3x"></fa-icon>
-  <fa-icon [icon]= "faApplePay" size="3x"></fa-icon>
-</div>
-  
+  <a [routerLink]="['/']">
+    <h1>My Online Store</h1>
+  </a>
+
+  <a routerLink="/cart" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
+  <!-- <a routerLink="/plans/:option" class="button fancy-button"><i class="material-icons">shopping_cart</i>Plan
+    Checkout</a> -->
+  <div class="icons-container">
+    <fa-icon [icon]="faPaypal" size="2x"></fa-icon>
+
+    <fa-icon [icon]="faGooglePay" size="3x"></fa-icon>
+    <fa-icon [icon]="faApplePay" size="3x"></fa-icon>
+  </div>
+
 </nav>
-
-  
-

@@ -30,8 +30,8 @@ plans;
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!')
   }
-  addToCheckOut(plans){
-    this.dataPlanService.addToCheckOut(plans)
-    window.alert('You have selected Unlimited talk, text, and Data!')
-  }
+  // addToCheckOut(plans){
+  //   this.dataPlanService.addToCheckOut(plans)
+  //   window.alert('You have selected Unlimited talk, text, and Data!')
+  // }
 }

@@ -6,11 +6,11 @@ import { DataPlanService} from '../data-plan.service';
   styleUrls: ['./plan-cart.component.css']
 })
 export class PlanCartComponent implements OnInit {
-items
+services
   constructor(private dataPlanService: DataPlanService) { }
 
   ngOnInit(): void {
-    this.items= this.dataPlanService.getPlan();
+    this.services= this.dataPlanService.getPlan();
   }
 
 }

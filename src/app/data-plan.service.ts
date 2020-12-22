@@ -5,15 +5,15 @@ import { Injectable } from '@angular/core';
 })
 
 export class DataPlanService {
-items = []
+services = []
 constructor() { }
 
 
-  addToCheckOut(plans){
-    this.items.push(plans)
-  }
+  // addToCheckOut(plans){
+  //   this.services.push(plans)
+  // }
   getPlan(){
-    return this.items
+    return this.services
   }
 
 }
