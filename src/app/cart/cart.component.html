@@ -2,15 +2,17 @@
 <p>
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
-<div class = "cart-item" *ngFor="let item of items">
+<div class="cart-item" *ngFor="let item of items">
   <span>{{item.name}}</span>
-    <span>{{item.price | currency}}</span>
+  <span>{{item.price | currency}}</span>
+  <span>{{item.description}}</span>
 </div>
 
-<div *ngFor="let service of services">
-  <span>{{service.name}}</span>
+<!-- <div *ngFor="let service of services">
+  <span>{{service}}</span>
     <span>{{service.price | currency}}</span>
-    </div>
+    
+    </div> -->
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
@@ -28,8 +30,6 @@
     <input id="address" type="text" formControlName="address">
   </div>
 
-<button class="button" type="submit">Purchase</button>
+  <button class="button" type="submit">Purchase</button>
 
 </form>
-
-  

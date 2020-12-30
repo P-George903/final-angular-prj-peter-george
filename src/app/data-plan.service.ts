@@ -12,8 +12,8 @@ constructor() { }
   // addToCheckOut(plans){
   //   this.services.push(plans)
   // }
-  getPlan(){
-    return this.services
-  }
+  // getPlan(){
+  //   return this.services
+  // }
 
 }

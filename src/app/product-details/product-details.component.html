@@ -1,21 +1,29 @@
-<h2>Product Details</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h2>Product Details</h2>
+      <div *ngIf="product">
+        <h3>{{product.name}}</h3>
+        <h4>{{product.price | currency}}</h4>
+        <p>{{product.description}}</p>
+        <hr>
 
-<div *ngIf ="product">
-  <h3>{{product.name}}</h3>
-  <h4>{{product.price | currency}}</h4>
-  <p>{{product.description}}</p>
-  
-  <button (click)="addToCart(product)">Buy</button>
+        <img [src]="product.imagePath" class="rounded mx-auto d-block" alt="{{product.name}}"
+          style="max-height: 150px; margin-top: 10px; margin-bottom: 10px;">
+
+        <button (click)="addToCart(product)" class="style">Buy</button>
+      </div>
+
+      <h2>Phone Plan Details</h2>
+
+      <div *ngIf="plans">
+        <h3>{{ plans.name }}</h3>
+        <h4>{{ plans.price | currency }}</h4>
+        <p>{{ plans.description }}</p>
+        <hr>
+        <button (click)="addToCart(plans)" class="cntr">Add Phone Plan</button>
+      </div>
+
+    </div>
+  </div>
 </div>
-
-  <h2>Phone Plan Details</h2>
-
-<div *ngIf="plans">
-  <h3>{{ plans.name }}</h3>
-  <h4>{{ plans.price | currency }}</h4>
-  <p>{{ plans.description }}</p>
-  <button (click)="addToCart(plans)">Add Phone Plan</button>
-</div>
-
-
-  

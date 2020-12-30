@@ -8,7 +8,7 @@ providedIn: 'root'
  
 export class CartService {
 items = []
-services = []
+// services = []
 
 constructor(private http: HttpClient) { }
 addToCart(product){
@@ -27,7 +27,7 @@ clearCart(){
 getShippingPrices(){
   return this.http.get('/assets/shipping.json')
 }
-getPlan(){
-return this.services
-}
+// getPlan(){
+// return this.services
+// }
 }

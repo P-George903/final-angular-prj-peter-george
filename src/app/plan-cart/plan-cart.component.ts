@@ -10,7 +10,7 @@ services
   constructor(private dataPlanService: DataPlanService) { }
 
   ngOnInit(): void {
-    this.services= this.dataPlanService.getPlan();
+    // this.services= this.dataPlanService.getPlan();
   }
 
 }
