@@ -11,7 +11,7 @@
         <img [src]="product.imagePath" class="rounded mx-auto d-block" alt="{{product.name}}"
           style="max-height: 150px; margin-top: 10px; margin-bottom: 10px;">
 
-        <button (click)="addToCart(product)" class="style">Buy</button>
+        <button class="btn btn-primary style"(click)="addToCart(product)">Buy</button>
       </div>
 
       <h2>Phone Plan Details</h2>
@@ -21,7 +21,7 @@
         <h4>{{ plans.price | currency }}</h4>
         <p>{{ plans.description }}</p>
         <hr>
-        <button (click)="addToCart(plans)" class="cntr">Add Phone Plan</button>
+        <button class="btn btn-primary cntr" (click)="addToCart(plans)" type="button">Add Phone Plan</button>
       </div>
 
     </div>

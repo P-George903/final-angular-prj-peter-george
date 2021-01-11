@@ -14,6 +14,7 @@ export class ProductDetailsComponent implements OnInit {
 product;
 plans;
 
+
   constructor(private route: ActivatedRoute,
   private cartService: CartService,
   private dataPlanService: DataPlanService) { }
@@ -28,6 +29,7 @@ plans;
   }
   addToCart(product){
     this.cartService.addToCart(product);
+  
     window.alert('Your product has been added to the cart!')
   }
   // addToCheckOut(plans){

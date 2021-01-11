@@ -2,11 +2,15 @@
 <p>
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
-<div class="cart-item" *ngFor="let item of items">
+<div class="cart-item" *ngFor="let item of items; let i = index">
   <span>{{item.name}}</span>
   <span>{{item.price | currency}}</span>
   <span>{{item.description}}</span>
 </div>
+<button class="btn btn-danger" 
+type="button"(click)="onDelete()"
+style="margin-bottom: 10px;"
+*ngIf="items.length > 0">Remove</button>
 
 <!-- <div *ngFor="let service of services">
   <span>{{service}}</span>
@@ -30,6 +34,6 @@
     <input id="address" type="text" formControlName="address">
   </div>
 
-  <button class="button" type="submit">Purchase</button>
+  <button class="btn btn-primary button" type="submit">Purchase</button>
 
 </form>

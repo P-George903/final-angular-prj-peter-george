@@ -20,14 +20,19 @@
     Description: {{product.description}}
   </p>
 
-  <button style="margin-bottom:6px" (click)="share()">
+  <button class="btn btn-primary" style="margin-bottom:6px" (click)="share()">
     Share
   </button>
 
   <app-product-alerts [product]="product" (notify)="onNotify()">
   </app-product-alerts>
 
+
+
+
+</div>
+
 </div>
 </div>
-</div>
+
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder} from '@angular/forms';
+
 import { CartService} from '../cart.service';
+
 // import { DataPlanService} from '../data-plan.service'
 @Component({
   selector: 'app-cart',
@@ -10,7 +12,11 @@ import { CartService} from '../cart.service';
 export class CartComponent implements OnInit {
   items;
   
+  
   checkoutForm;
+  
+  
+
 
   constructor(private cartService: CartService,
     // private dataPlanService: DataPlanService,
@@ -22,7 +28,12 @@ export class CartComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.items = this.cartService.getItems();
+    
+    this.items = this.cartService.getItems()
+  }
+  onDelete(){
+    this.cartService.deleteItem(this.items)
+    
   }
   onSubmit(customerData){
     // Process checkout data here
@@ -32,4 +43,6 @@ export class CartComponent implements OnInit {
     console.warn('Your order has been submitted', customerData)
   }
 
+  
+  
 }

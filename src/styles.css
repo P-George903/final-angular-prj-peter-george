@@ -115,8 +115,9 @@ fa-icon {
   
   app-top-bar {
     align-items: center;
-    background-color: #1976d2;
+    background-color: #337AB7;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin: 0 auto;
     width: auto;
