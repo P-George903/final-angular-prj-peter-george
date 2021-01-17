@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div class="row product">
     <div class="col-8">
       <h2>Product Details</h2>
-      <div *ngIf="product">
+       <div *ngIf="product">
         <h3>{{product.name}}</h3>
         <h4>{{product.price | currency}}</h4>
         <p>{{product.description}}</p>
@@ -13,17 +13,22 @@
 
         <button class="btn btn-primary style"(click)="addToCart(product)">Buy</button>
       </div>
-
-      <h2>Phone Plan Details</h2>
+    </div>
+  </div>
+  <div class="row service">
+    <div class="col-xs-12 col-md-6" *ngFor="let service of plans; index as productId">
+      <h2>Phone Service Details</h2>
 
       <div *ngIf="plans">
-        <h3>{{ plans.name }}</h3>
-        <h4>{{ plans.price | currency }}</h4>
-        <p>{{ plans.description }}</p>
+        <h3>{{ service.name }}</h3>
+        <h4>{{ service.price | currency }}</h4>
+        <p>{{ service.description }}</p>
         <hr>
-        <button class="btn btn-primary cntr" (click)="addToCart(plans)" type="button">Add Phone Plan</button>
+        <button (click)="addToCart(service)" type="button" class="cntr" style="margin-bottom: 30px;">Add Plan</button>
       </div>
 
     </div>
+
   </div>
+  
 </div>

@@ -18,10 +18,10 @@ fa-icon {
     margin: 0;
   }
   
-  .container-fluid {
+  /* .container-fluid {
     display: flex;
     flex-direction: row;
-  }
+  } */
   
   router-outlet + *  {
     padding: 0 16px;

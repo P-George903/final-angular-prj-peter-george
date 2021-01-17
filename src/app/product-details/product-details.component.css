@@ -1,4 +1,4 @@
-.row {
+.product {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +14,21 @@
 .cntr{
     margin: auto;
     display: block;
+    background-color: #337AB7;
 }
 h2{
     font-weight: 500;
 }
+.service{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 600px) {
+    
+     .service{
+       flex-direction: column;
+     }
+   }
+

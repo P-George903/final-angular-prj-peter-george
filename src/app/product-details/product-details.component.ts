@@ -12,7 +12,8 @@ import { DataPlanService} from '../data-plan.service';
 })
 export class ProductDetailsComponent implements OnInit {
 product;
-plans;
+plans = plans;
+plan;
 
 
   constructor(private route: ActivatedRoute,
@@ -24,7 +25,7 @@ plans;
     this.product = products[+params.get('productId')]
     });
     this.route.paramMap.subscribe(params => {
-    this.plans = plans[+params.get('option')];
+    this.plan = plans[+params.get('option')];
     });
   }
   addToCart(product){
