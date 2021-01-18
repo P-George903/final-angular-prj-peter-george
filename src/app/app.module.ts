@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule} from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http'
 
@@ -25,8 +25,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       { path: 'products/:productId', component: ProductDetailsComponent},
       { path: 'cart', component: CartComponent},
       { path: 'plans/:option', component: PlanCartComponent},
-      { path: 'shipping', component: ShippingComponent}
+      { path: 'shipping', component: ShippingComponent},
+      
     ]),
+    
     FontAwesomeModule
   ],
   declarations: [

@@ -6,7 +6,7 @@
 <div class="col-xs-12 col-lg-4 col-md-6" *ngFor="let product of products; index as productId">
 
   <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]"
+    <a [title]="product.name + ' details'" (click)="scrollTop()"[routerLink]="['/products', productId]"
       [ngStyle]="{border: '1px solid', 'border-radius': '2px', 'box-shadow': '0 8px 6px -6px hsl(211, 27%, 70%)', padding: '3px'}">
       {{product.name}}
     </a>
