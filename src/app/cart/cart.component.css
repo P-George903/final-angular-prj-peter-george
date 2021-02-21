@@ -1,3 +1,9 @@
 .btn-danger{
     margin-top: 5px;
 }
+.checkOut {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}

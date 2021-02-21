@@ -1,9 +1,16 @@
 <div class="container">
   <div class="row product">
     <div class="col-8">
+      <input [(ngModel)]="email" placeholder="Email" />
+    <input [(ngModel)]="password" placeholder="Password" />
+    <button (click)="logIn()">Login</button>
+    <div>
+      <button (click)="logOut()">Log Out</button>
+    </div>
+
       <h2>Product Details</h2>
-       <div *ngIf="product">
-        <h3>{{product.name}}</h3>
+      <div *ngIf="product">
+        <h3>{{product.brand}} {{product.name}}</h3>
         <h4>{{product.price | currency}}</h4>
         <p>{{product.description}}</p>
         <hr>
@@ -11,7 +18,8 @@
         <img [src]="product.imagePath" class="rounded mx-auto d-block" alt="{{product.name}}"
           style="max-height: 150px; margin-top: 10px; margin-bottom: 10px;">
 
-        <button class="btn btn-primary style"(click)="addToCart(product)">Buy</button>
+        <button class="btn btn-primary style" (click)="addToCart(product)">Buy</button>
+       
       </div>
     </div>
   </div>
@@ -30,5 +38,5 @@
     </div>
 
   </div>
-  
+
 </div>

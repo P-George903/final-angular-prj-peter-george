@@ -3,37 +3,37 @@
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
 <div class="cart-item" *ngFor="let item of items; let i = index">
-  <span>{{item.name}}</span>
   <span>{{item.price | currency}}</span>
-  <span>{{item.description}}</span>
+  <span>{{item.name}}</span>
+  <span>{{item.brand}}</span>
 </div>
 <button class="btn btn-danger" 
 type="button"(click)="onDelete()"
 style="margin-bottom: 10px;"
 *ngIf="items.length > 0">Remove</button>
 
-<!-- <div *ngFor="let service of services">
-  <span>{{service}}</span>
-    <span>{{service.price | currency}}</span>
-    
-    </div> -->
+<!-- <ng-container [formGroup]="this.checkoutForm"(ngSubmit)="onSubmit(checkoutForm.value)"> -->
 
+  <div class="row checkOut">
+    <div class="col-xs-4">
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-
-  <div>
+  <div class="form-group">
     <label for="name">
       Name
     </label>
-    <input id="name" type="text" formControlName="name">
+    <input id="name" type="text" formControlName="name" class="form-control">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="address">
       Address
     </label>
-    <input id="address" type="text" formControlName="address">
+    <input id="address" type="text" formControlName="address" class="form-control">
   </div>
 
-  <button class="btn btn-primary button" type="submit">Purchase</button>
+  <button class="btn btn-primary button" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
 
 </form>
+</div>
+</div>
+<!-- </ng-container> -->

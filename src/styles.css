@@ -16,12 +16,9 @@ fa-icon {
   body {
     color: #616161;
     margin: 0;
+
   }
   
-  /* .container-fluid {
-    display: flex;
-    flex-direction: row;
-  } */
   
   router-outlet + *  {
     padding: 0 16px;
@@ -34,7 +31,9 @@ fa-icon {
   }
   
   h2 {
+    color: white;
     font-size: 26px;
+    margin-bottom: 20px;
   }
   
   h1, h2 {
@@ -125,7 +124,7 @@ fa-icon {
   
    @media screen and (max-width: 600px) {
     app-top-bar {
-    width: 47rem;
+    width: 51rem;
      }
      
    }

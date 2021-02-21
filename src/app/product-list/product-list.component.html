@@ -1,38 +1,37 @@
-<h2>Products</h2>
-<hr>
 <div class="container-fluid">
 
-<div class="row">
-<div class="col-xs-12 col-lg-4 col-md-6" *ngFor="let product of products; index as productId">
+  <div class="row">
+    <h2>Products</h2>
+    <hr>
+    <div class="col-xs-12 col-lg-4 col-md-6" *ngFor="let product of products; index as productId">
 
-  <h3>
-    <a [title]="product.name + ' details'" (click)="scrollTop()"[routerLink]="['/products', productId]"
-      [ngStyle]="{border: '1px solid', 'border-radius': '2px', 'box-shadow': '0 8px 6px -6px hsl(211, 27%, 70%)', padding: '3px'}">
-      {{product.name}}
-    </a>
-  </h3>
+      <h3>
+        <a [title]="product.name + ' details'" (click)="scrollTop()" [routerLink]="['/products', productId]"
+          [ngStyle]="{border: '1px solid', 'border-radius': '2px', 'box-shadow': '0 8px 6px -6px hsl(211, 27%, 70%)', padding: '3px'}">
+          {{product.name}}
+        </a>
+      </h3>
 
-  <div *ngIf="product.imagePath">
-    <img [src]="product.imagePath" alt="{{product.name}}" class="img-responsive" style="max-height: 150px; margin-top: 20px;">
+      <div *ngIf="product.imagePath">
+        <img [src]="product.imagePath" alt="{{product.name}}" class="img-responsive"
+          style="max-height: 150px; margin-top: 20px;">
+      </div>
+
+      <p *ngIf="product.description">
+        Description: {{product.description}}
+      </p>
+
+      <button class="btn btn-primary" style="margin-bottom:6px" (click)="share()">
+        Share
+      </button>
+
+      <app-product-alerts [product]="product" (notify)="onNotify()">
+      </app-product-alerts>
+
+
+
+
+    </div>
+
   </div>
-
-  <p *ngIf="product.description">
-    Description: {{product.description}}
-  </p>
-
-  <button class="btn btn-primary" style="margin-bottom:6px" (click)="share()">
-    Share
-  </button>
-
-  <app-product-alerts [product]="product" (notify)="onNotify()">
-  </app-product-alerts>
-
-
-
-
 </div>
-
-</div>
-</div>
-
-

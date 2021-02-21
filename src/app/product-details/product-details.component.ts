@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
-import { products} from '../products';
-import { plans} from '../plans';
-import { CartService} from '../cart.service';
-import { DataPlanService} from '../data-plan.service';
+import { ActivatedRoute } from '@angular/router';
+import { products } from '../products';
+import { plans } from '../plans';
+import { CartService } from '../cart.service';
+
+import { RestService } from '../rest.service'
 
 @Component({
   selector: 'app-product-details',
@@ -11,30 +12,40 @@ import { DataPlanService} from '../data-plan.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-product;
-plans = plans;
-plan;
+  product
+  plans = plans;
+
+
+  email: string = ""
+  password: string = ""
 
 
   constructor(private route: ActivatedRoute,
-  private cartService: CartService,
-  private dataPlanService: DataPlanService) { }
+    private cartService: CartService,
+
+    private readonly rest: RestService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params =>{
-    this.product = products[+params.get('productId')]
-    });
     this.route.paramMap.subscribe(params => {
-    this.plan = plans[+params.get('option')];
+      this.product = products[+params.get('productId')]
     });
   }
-  addToCart(product){
+  addToCart(product) {
     this.cartService.addToCart(product);
-  
+
     window.alert('Your product has been added to the cart!')
   }
-  // addToCheckOut(plans){
-  //   this.dataPlanService.addToCheckOut(plans)
-  //   window.alert('You have selected Unlimited talk, text, and Data!')
-  // }
+  logIn() {
+    this.rest.logIn({
+
+      email: this.email,
+      password: this.password
+    })
+  }
+  logOut() {
+    this.rest.logOut();
+  }
+  
+
+
 }
