@@ -12,10 +12,7 @@ import { JwtService } from '../jwt.service'
 
 export class RegisterComponent implements OnInit {
   public loginForm: FormGroup;
-  email: string = ""
-  firstName: string = ""
-  lastName: string = ""
-  password: string = ""
+
 
 constructor(private readonly fb: FormBuilder, private readonly rest: RestService, 
     private readonly jwtService: JwtService,
