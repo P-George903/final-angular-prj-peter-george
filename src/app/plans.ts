@@ -13,11 +13,8 @@ export const plans = [
   },
   {
     name: 'Family Plan',
-    brand: 'T-mobile',
+    brand: 'T-Mobile',
     price: 55,
     description: 'Family Share Plan'
-
   }
-
-
 ];

@@ -1,24 +1,55 @@
-<!--navbar -->
-<nav id="nav">
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+        aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/']">
+        <span class="font-size">My Online Store</span>
+      </a>
 
-  <a [routerLink]="['/']">
-    <h1>My Online Store</h1>
-  </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="/cart">
+            <fa-icon [icon]="cart" size="2x"></fa-icon>
+          </a></li>
+        <li><a routerLink="/register">
+            <fa-icon [icon]="userIcon" size="2x"></fa-icon>
+          </a></li>
+        <li><a (click)="openModal(template)">
+            <fa-icon [icon]="signIn" size="2x"></fa-icon>
+          </a></li>
+        <!-- Put here your menu items -->
+      </ul>
+   </div>
+    <ng-template #template>
+      
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">User Login</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please Enter
+        <div>
+          <input [(ngModel)]="email" placeholder="Email" />
+          <input [(ngModel)]="password" placeholder="Password" type="password" />
+          <button (click)="logIn()">Login</button>
+          <div>
+            <button (click)="logOut()">Log Out</button>
+          </div>
+          <br>
+          <p>Don't have an account? Click <a [routerLink]="'/register'">here</a> to register.</p>
+        </div>
+      </div>
 
-  <a routerLink="/cart" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
+    </ng-template>
 
-  <div class="icons-container">
-    <a routerLink="/register">
-      <fa-icon [icon]="userIcon" size="3x"></fa-icon>
-    </a>
-    <a routerLink="/logIn">
-      <fa-icon [icon]="signIn" size="3x"></fa-icon>
-    </a>
-
-    <fa-icon [icon]="faPaypal" size="2x"></fa-icon>
-    <fa-icon [icon]="faGooglePay" size="3x"></fa-icon>
-    <fa-icon [icon]="faApplePay" size="3x"></fa-icon>
   </div>
-
-
 </nav>

@@ -1,39 +1,53 @@
-<h3>Cart</h3>
-<p>
-  <a routerLink="/shipping">Shipping Prices</a>
-</p>
-<div class="cart-item" *ngFor="let item of items; let i = index">
-  <span>{{item.price | currency}}</span>
-  <span>{{item.name}}</span>
-  <span>{{item.brand}}</span>
-</div>
-<button class="btn btn-danger" 
-type="button"(click)="onDelete()"
-style="margin-bottom: 10px;"
-*ngIf="items.length > 0">Remove</button>
-
-<!-- <ng-container [formGroup]="this.checkoutForm"(ngSubmit)="onSubmit(checkoutForm.value)"> -->
-
-  <div class="row checkOut">
-    <div class="col-xs-4">
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-  <div class="form-group">
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name" class="form-control">
+<div class="container">
+  <h3>Cart</h3>
+  <p>
+    <a routerLink="/shipping">Shipping Prices</a>
+  </p>
+  <p>
+    <a routerLink="/editCart">Modify Order</a>
+  </p>
+  <div class="cart-item" *ngFor="let item of items; let i = index">
+    <span>{{item.price | currency}}</span>
+    <span>{{item.name}}</span>
+    <span>{{item.brand}}</span>
   </div>
+  <button class="btn btn-danger" type="button" (click)="onDelete()" style="margin-bottom: 10px;"
+    *ngIf="items.length > 0">Remove</button>
+  <div class="row">
+    <div class="col-sm-4">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+        <div class="form-group">
+          <label for="name">
+            Name
+          </label>
+          <input id="name" type="text" formControlName="name" class="form-control">
+        </div>
 
-  <div class="form-group">
-    <label for="address">
-      Address
-    </label>
-    <input id="address" type="text" formControlName="address" class="form-control">
+        <div class="form-group">
+          <label for="address">
+            Address
+          </label>
+          <input id="address" type="text" formControlName="address" class="form-control">
+        </div>
+        <div>
+          <button class="btn btn-primary button" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
+
+          <a href="#">
+            <fa-icon [icon]="faAmazonPay" size="2x"></fa-icon>
+          </a>
+          <a href="#">
+            <fa-icon [icon]="faPaypal" size="2x"></fa-icon>
+          </a>
+          <a href="#">
+            <fa-icon [icon]="faGooglePay" size="2x"></fa-icon>
+          </a>
+          <a href="#">
+            <fa-icon [icon]="faApplePay" size="2x"></fa-icon>
+          </a>
+        </div>
+      </form>
+
+      </div>
+
+    </div>
   </div>
-
-  <button class="btn btn-primary button" type="submit" [disabled]="!checkoutForm.valid">Purchase</button>
-
-</form>
-</div>
-</div>
-<!-- </ng-container> -->

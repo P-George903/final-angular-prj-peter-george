@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
@@ -14,9 +15,11 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 
 import { ShippingComponent } from './shipping/shipping.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { RegisterComponent } from './register/register.component';
+import { EditCartComponent } from './edit-cart/edit-cart.component';
 
 
 @NgModule({
@@ -25,11 +28,14 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ModalModule.forRoot(), 
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
-      {path: 'register', component: RegisterComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'editCart', component: EditCartComponent },
       { path: 'shipping', component: ShippingComponent },
 
     ]),
@@ -46,7 +52,9 @@ import { RegisterComponent } from './register/register.component';
 
     ShippingComponent,
 
-    RegisterComponent
+    RegisterComponent,
+
+    EditCartComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService]

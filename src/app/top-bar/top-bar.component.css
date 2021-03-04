@@ -1,9 +1,7 @@
 a {
     text-decoration: none;
-    margin-left: 15px;
 }
 
-h1{
-    margin-left: 15px;
-    margin-top: 7px;
+.font-size{
+    font-size: x-large;
 }

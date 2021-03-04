@@ -1,85 +1,71 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { API_URL } from '../environments/environment'
-
-
-
-
+import { JwtService } from './jwt.service'
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RestService {
-  jwtKey: string = 'user_jwt'
 
-  constructor(private readonly http: HttpClient) { }
-
-
+  constructor(private readonly http: HttpClient,
+    private readonly jwtService: JwtService) { }
 
   register(body: {
     email: string;
     password: string;
     fname: string;
     lname: string;
-  }) {
-    this.http.post(`${API_URL}/register`, body)
-      .toPromise()
-      .then(res => {
-        localStorage.setItem(this.jwtKey, <string>res)
-        console.log('jwt', res)
-      })
+  }): Promise<any> {
+    return  this.http.post(`${API_URL}/register`, body).toPromise()
   }
 
-  logIn(body) {
-    this.http
+  logIn(body): Promise<any> {
+    return this.http
       .post(`${API_URL}/auth`, body)
       .toPromise()
-      .then(res => {
-        localStorage.setItem(this.jwtKey, <string>res)
-        console.log('jwt', res)
-      });
-
-
   }
+  
   logOut() {
-    localStorage.removeItem(this.jwtKey);
+    this.jwtService.removeJwt()
+  }
+  
+  getPhone(id: number): Promise<any> {
+    const jwt = this.jwtService.getJwt()
+    return this.http
+      .get(
+        `${API_URL}/${id}`,
+        { headers: { Authorization: `Bearer ${jwt}` } }
+      ).toPromise();
   }
 
-  getCar(id: number) {
-    const jwt = localStorage.getItem(this.jwtKey);
-    this.http
-      .get(`${API_URL}/${id}`, { headers: { Authorization: `Bearer ${jwt}` } })
+  deletePhone(id: number): Promise<any> {
+    const jwt = this.jwtService.getJwt()
+    return this.http
+      .delete(
+        `${API_URL}/${id}`,
+        { headers: { Authorization: `Bearer ${jwt}` } }
+      ).toPromise();
+  }
+
+  update(id: number, editModel: any): Promise<any> {
+    const jwt = this.jwtService.getJwt()
+    return this.http
+      .put(`${API_URL}/${id}`, editModel, { headers: { Authorization: `Bearer ${jwt}` } })
       .toPromise()
       .then(res => {
-        console.log('getCar', res)
+       
       })
   }
-  update(id: number, carModel: any) {
-    console.log(carModel)
-
-    const jwt = localStorage.getItem(this.jwtKey);
-
-
-    this.http
-      .put(`${API_URL}/${id}`, carModel, { headers: { Authorization: `Bearer ${jwt}` } })
-      .toPromise()
-      .then(res => {
-        console.log('update', res)
-      })
-
+  
+  onNotify(saleAlert: any[]): Promise<any> {
+    const jwt = this.jwtService.getJwt()
+    return this.http
+      .post(
+        `${API_URL}/notify`,
+        { saleAlert },
+        { headers: { Authorization: `Bearer ${jwt}` } }
+      ).toPromise();
   }
-
-  // getUserCars() {
-  //   const jwt = localStorage.getItem(this.jwtKey);
-
-  //   this.http
-  //     .get(
-  //       `${API_URL}/user-cars`,
-  //       { headers: { Authorization: `Bearer ${jwt}` } }
-  //     )
-  //     .toPromise()
-  //     .then(res => {
-  //       console.log('getUserCars', res)
-  //     });
-  // }
 }

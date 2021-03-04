@@ -42,6 +42,6 @@ export const products = [
     description: 'A mobile experience with features and specs that operates like a computer',
     imagePath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6CXAaEQpoo8V2IN8wJfPuD52lV5Ql5X3Ksg&usqp=CAU'
   },
-  
+
 ];
 

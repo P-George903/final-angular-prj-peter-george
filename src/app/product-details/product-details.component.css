@@ -4,30 +4,32 @@
     justify-content: center;
     align-items: center;
 }
-.style{
+
+.style { 
    
     margin: auto;
     display: block;
-    
 }
 
-.cntr{
+.cntr {
     margin: auto;
     display: block;
     background-color: #337AB7;
 }
-h2{
+
+h2 {
     font-weight: 500;
 }
-.service{
+
+.service {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+
 @media screen and (max-width: 600px) {
-    
-     .service{
+    .service {
        flex-direction: column;
      }
    }
